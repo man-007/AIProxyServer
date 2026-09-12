@@ -1,21 +1,22 @@
 # AI Proxy Server
 
-This project provides a local HTTP proxy for Claude Code and other Anthropic Messages clients. It translates `POST /v1/messages` requests into requests for an OpenAI-compatible upstream provider, such as NVIDIA NIM, and translates the response back to Anthropic format.
+AI Proxy Server is a lightweight local gateway that lets Claude Code and other Anthropic-compatible clients communicate with OpenAI-compatible model providers such as NVIDIA NIM and OpenRouter. It translates Anthropic Messages requests into the provider's API format, forwards them to the selected model, and translates responses and streaming events back for the client.
 
-The proxy currently supports Anthropic Messages only. `/v1/chat/completions` and `/v1/responses` are upstream paths, not public proxy routes.
+## High-Level Flow
 
-## Features
+The following diagram illustrates how a request flows through the proxy:
 
-- Anthropic Messages request and response translation
-- Streaming SSE support for text and tool calls
-- Optional model discovery and local model registry
-- Configurable `httpx` or OpenAI SDK upstream transport
-- Optional bearer-token authentication for proxy routes
-- Optional rate limiting with in-memory or Redis storage
-- CORS configuration for browser clients
-- Idempotency protection for duplicate requests
-- JSON logging and Prometheus metrics
-- Runtime configuration through the configuration API
+```mermaid
+flowchart LR
+  A[User] -->|Anthropic Messages request| B[AI Proxy]
+  B -->|OpenAI-compatible request| C[Provider: NVIDIA NIM, OpenRouter, etc.]
+  C -->|OpenAI-compatible response| B
+  B -->|Anthropic-compatible response| A
+```
+
+1. The **User** sends a request using the Anthropic Messages protocol.
+2. The **AI Proxy** translates the request into the provider's OpenAI-compatible API format and translates the response back.
+3. The **Provider** handles the model request and returns an OpenAI-compatible response. Examples include NVIDIA NIM and OpenRouter.
 
 ## Requirements
 
@@ -79,6 +80,19 @@ export ANTHROPIC_API_KEY="not-used"
 ```
 
 Use `http://`, not `https://`, for this direct local connection. Put the proxy behind a TLS-terminating reverse proxy when HTTPS is required. An `UNKNOWN_CERTIFICATE_VERIFICATION_ERROR` from Claude Code together with Uvicorn `Invalid HTTP request received` messages usually means an HTTPS client is connecting to this plain-HTTP listener.
+
+## Features
+
+- Anthropic Messages request and response translation
+- Streaming SSE support for text and tool calls
+- Optional model discovery and local model registry
+- Configurable `httpx` or OpenAI SDK upstream transport
+- Optional bearer-token authentication for proxy routes
+- Optional rate limiting with in-memory or Redis storage
+- CORS configuration for browser clients
+- Idempotency protection for duplicate requests
+- JSON logging and Prometheus metrics
+- Runtime configuration through the configuration API
 
 ## Environment variables
 
