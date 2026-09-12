@@ -1,7 +1,13 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from dataclasses import dataclass
 from typing import Any
 
+"""
+StreamInfo stores metadata for an active response stream.
 
+Contributor: @man-007
+"""
 @dataclass
 class StreamInfo:
     """Hold state needed while translating one upstream streaming response."""

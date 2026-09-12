@@ -1,7 +1,13 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from dataclasses import dataclass, field
 from typing import Any
 
+"""
+RequestContext carries request metadata through the proxy pipeline.
 
+Contributor: @man-007
+"""
 @dataclass
 class RequestContext:
     """Carry normalized request data and routing decisions through the gateway."""

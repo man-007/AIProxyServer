@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -8,6 +11,11 @@ from dotenv import load_dotenv
 
 from proxy_gateway.utils.logging import normalize_log_level, get_logger
 
+"""
+Configuration management for the proxy gateway, including environment variable loading and validation.
+
+Contributor: @man-007
+"""
 logger = get_logger("config")
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -42,6 +50,8 @@ def _split_csv(value: Optional[str], default: Optional[str] = None) -> list[str]
 
 
 @dataclass
+# Settings represents proxy and upstream configuration from the environment.
+# Contributor: @man-007
 class Settings:
     """Represent proxy and upstream configuration loaded from the environment."""
 

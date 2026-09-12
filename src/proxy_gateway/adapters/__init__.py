@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 from proxy_gateway.adapters.adapters import (
 	AnthropicAdapter,
 	ProtocolAdapter,

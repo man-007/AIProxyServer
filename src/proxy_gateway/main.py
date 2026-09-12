@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from fastapi import FastAPI
@@ -9,6 +11,11 @@ from proxy_gateway.metrics import MetricsMiddleware
 from proxy_gateway.api.routes import router as api_router
 from proxy_gateway.services.state import logger, registry
 
+"""
+Main application entry point for the proxy gateway.
+
+Contributor: @man-007
+"""
 app = FastAPI(title="Proxy Server")
 
 add_optional_cors(app, allow_origins=settings.cors_allowed_origins)

@@ -1,8 +1,15 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from proxy_gateway.services.upstream.transports.base import UpstreamTransport
 
 
+"""
+TransportChain selects the transport used for upstream requests.
+
+Contributor: @man-007
+"""
 class TransportChain:
     """Select exactly one upstream transport by configured client name."""
 

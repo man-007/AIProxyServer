@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 import json
 import asyncio
 from datetime import datetime, timezone
@@ -11,6 +14,11 @@ from proxy_gateway.utils.logging import get_logger
 logger = get_logger("registry")
 
 
+"""
+ModelRegistry manages discovered models and their compatibility metadata.
+
+Contributor: @man-007
+"""
 class ModelRegistry:
     """Cache upstream model metadata and resolve configured model aliases."""
 

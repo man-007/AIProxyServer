@@ -1,6 +1,13 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from typing import Any, Optional
 from proxy_gateway.assembler.stream_assembler import StreamAssembler
 
+"""
+AnthropicStreamAssembler builds Anthropic-compatible streaming events.
+
+Contributor: @man-007
+"""
 class AnthropicStreamAssembler(StreamAssembler):
     """Translate OpenAI-compatible streaming chunks to Anthropic events."""
 

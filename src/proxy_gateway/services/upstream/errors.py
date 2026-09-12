@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 from __future__ import annotations
 
 import json
@@ -6,6 +9,11 @@ from typing import Any
 import httpx
 
 
+"""
+UpstreamError represents a normalized upstream provider failure.
+
+Contributor: @man-007
+"""
 class UpstreamError(RuntimeError):
     def __init__(self, status_code: int, payload: Any):
         super().__init__(str(payload))

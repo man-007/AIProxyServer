@@ -1,15 +1,24 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 from __future__ import annotations
 
 import asyncio
 import hashlib
 import json
 from collections.abc import Awaitable, Callable
+from typing import Any
 from typing import TypeVar
 
 from proxy_gateway.diagnostics import get_logger
 from proxy_gateway.metrics import IDEMPOTENCY_REJECTED
 
 
+"""
+Idempotency utilities for the proxy gateway, including request key generation and in-flight request coordination.
+
+Contributor: @man-007
+"""
 logger = get_logger("idempotency")
 ResultT = TypeVar("ResultT")
 
@@ -24,12 +33,18 @@ def request_key(payload: dict[str, Any], supplied_key: str = "") -> str:
     return f"proxy-{digest}"
 
 
+"""
+DuplicateRequestError identifies an already-running duplicate request.
+"""
 class DuplicateRequestError(RuntimeError):
     """Signal that an equivalent request is already active."""
 
     pass
 
 
+"""
+InFlightRequestCoordinator prevents duplicate work for active requests.
+"""
 class InFlightRequestCoordinator:
     """Reject identical requests while the original request is active."""
 

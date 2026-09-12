@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 from __future__ import annotations
 
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
@@ -45,6 +48,11 @@ IDEMPOTENCY_REJECTED = Counter(
 )
 
 
+"""
+MetricsMiddleware records request metrics for Prometheus.
+
+Contributor: @man-007
+"""
 class MetricsMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: Callable):
         method = request.method

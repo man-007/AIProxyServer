@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from typing import Any
@@ -10,7 +12,13 @@ from proxy_gateway.validation import RequestValidationError
 
 logger = get_logger("gateway")
 
+"""
+GatewayService coordinates client request validation, model resolution, and
+conversion into the format expected by the upstream service. It also checks
+model capabilities before preparing the upstream payload.
 
+Contributor: @man-007
+"""
 class GatewayService:
     """Coordinates validation, model resolution, and protocol conversion."""
 

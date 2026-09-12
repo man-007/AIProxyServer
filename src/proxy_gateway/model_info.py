@@ -1,8 +1,14 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
 
+"""
+ModelInfo stores normalized model metadata and capabilities for the proxy gateway.
 
+Contributor: @man-007
+"""
 @dataclass
 class ModelInfo:
     id: str

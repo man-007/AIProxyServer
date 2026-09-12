@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from typing import Any
 
 from fastapi import APIRouter, Depends, Request
@@ -9,7 +11,11 @@ from proxy_gateway.validation import proxy_auth_dependency
 
 router = APIRouter()
 
+"""
+API route for checking the health status of the proxy gateway.
 
+Contributor: @man-007
+"""
 @router.get("/")
 @log_method_entry_exit("server")
 async def root() -> dict[str, str]:

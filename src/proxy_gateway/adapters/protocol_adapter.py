@@ -1,8 +1,15 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from abc import ABC, abstractmethod
 from typing import Any
 from proxy_gateway.assembler.stream_assembler import StreamAssembler
 from proxy_gateway.utils.request_context import RequestContext
 
+"""
+ProtocolAdapter defines the shared protocol translation interface.
+
+Contributor: @man-007
+"""
 class ProtocolAdapter(ABC):
     """Define the protocol operations required by the gateway request route."""
 

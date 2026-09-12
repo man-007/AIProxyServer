@@ -1,5 +1,12 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from typing import Any
 
+"""
+Error normalization utilities for the proxy gateway, including functions to extract and standardize error messages from upstream responses.
+
+Contributor: @man-007
+"""
 
 def _extract_message(payload: Any) -> str:
     if isinstance(payload, str):

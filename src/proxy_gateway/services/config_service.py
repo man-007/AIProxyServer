@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 from __future__ import annotations
 
 import asyncio
@@ -16,6 +19,11 @@ from proxy_gateway.utils.logging import configure_logging
 logger = get_logger("config_service")
 
 
+"""
+ConfigService validates and applies runtime configuration changes.
+
+Contributor: @man-007
+"""
 class ConfigService:
     """Validate and apply configuration changes to the running proxy process."""
 

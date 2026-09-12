@@ -1,4 +1,4 @@
-# Generic Model Proxy Server
+# AI Proxy Server
 
 This project provides a local HTTP proxy for Claude Code and other Anthropic Messages clients. It translates `POST /v1/messages` requests into requests for an OpenAI-compatible upstream provider, such as NVIDIA NIM, and translates the response back to Anthropic format.
 

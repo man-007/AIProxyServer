@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 import json
@@ -15,6 +17,11 @@ from proxy_gateway.services.upstream.transports.base import UpstreamTransport
 logger = get_logger("upstream")
 
 
+"""
+HttpxUpstreamClient sends requests using the HTTPX transport.
+
+Contributor: @man-007
+"""
 class HttpxUpstreamClient(UpstreamTransport):
     """Generic chat-completions transport implemented with httpx."""
 

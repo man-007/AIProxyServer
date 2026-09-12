@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 """Composition root: builds the singleton services shared by all routes."""
 from proxy_gateway.adapters import build_protocol_adapter_chain
 from proxy_gateway.config import settings
@@ -8,6 +10,12 @@ from proxy_gateway.model_registry import ModelRegistry
 from proxy_gateway.services.upstream import build_upstream_client
 from proxy_gateway.services.config_service import ConfigService
 
+
+"""
+Composition root for the proxy gateway services.
+
+Contributor: @man-007
+"""
 logger = configure_logging(settings.log_level)
 
 registry = ModelRegistry(

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from typing import Any, Callable, Optional, Sequence
 from proxy_gateway.adapters.protocol_adapter import ProtocolAdapter
 from proxy_gateway.adapters.anthropic_adapter import AnthropicAdapter
@@ -7,6 +9,11 @@ from proxy_gateway.diagnostics import get_logger
 logger = get_logger("adapter_chain")
 
 AdapterFactory = Callable[[], ProtocolAdapter]
+"""
+ProtocolAdapterChain selects the first adapter that handles a request.
+
+Contributor: @man-007
+"""
 class ProtocolAdapterChain:
     """Select the first protocol adapter that accepts an incoming request."""
 

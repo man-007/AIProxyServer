@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 import json
 import time
 from typing import Any
@@ -22,7 +24,11 @@ from proxy_gateway.utils.request_context import RequestContext
 logger = get_logger("server")
 router = APIRouter()
 
+"""
+API route for handling Anthropic Messages requests in the proxy gateway.
 
+Contributor: @man-007
+"""
 @router.post("/v1/messages", include_in_schema=False)
 @log_method_entry_exit("server")
 async def anthropic_messages(request: Request, _: None = Depends(proxy_auth_dependency(settings.proxy_api_key if settings.proxy_auth_enabled else None))) -> Any:

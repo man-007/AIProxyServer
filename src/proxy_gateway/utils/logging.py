@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
+# Contributor: @man-007
 import logging
 import json
 import sys
@@ -7,6 +10,11 @@ from functools import wraps
 from typing import Any, Callable, Optional, TypeVar, cast, get_type_hints
 
 
+"""
+Logging utilities for the proxy gateway, including JSON formatting and method entry/exit decorators.
+
+Contributor: @man-007
+"""
 _STANDARD_LOG_FIELDS = set(logging.LogRecord(None, 0, "", 0, "", (), None).__dict__)
 F = TypeVar("F", bound=Callable[..., Any])
 
@@ -23,6 +31,11 @@ def _redact(value: object) -> object:
 # - Use exc_info=True only for unexpected exceptions; expected validation/business warnings should omit it.
 
 
+"""
+JsonFormatter serializes log records as structured JSON.
+
+Contributor: @man-007
+"""
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         fields = {

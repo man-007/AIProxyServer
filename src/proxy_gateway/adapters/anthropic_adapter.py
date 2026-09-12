@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 import json
 from typing import Any, Optional
 from proxy_gateway.assembler.stream_assembler import StreamAssembler
@@ -11,6 +13,11 @@ from proxy_gateway.utils.request_context import RequestContext
 
 logger = get_logger("AnthropicAdapter")
 
+"""
+AnthropicAdapter translates Anthropic Messages requests and responses.
+
+Contributor: @man-007
+"""
 class AnthropicAdapter(ProtocolAdapter):
     """Anthropic protocol boundary for the shared upstream gateway path."""
 

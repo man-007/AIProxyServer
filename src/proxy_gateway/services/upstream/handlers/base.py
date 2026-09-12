@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -8,6 +10,11 @@ from proxy_gateway.diagnostics import get_logger
 logger = get_logger("upstream_handler")
 
 
+"""
+UpstreamHandler is the base contract for upstream model handlers.
+
+Contributor: @man-007
+"""
 class UpstreamHandler(ABC):
     """Base handler for model selection in the upstream chain."""
 

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 import json
@@ -11,6 +13,11 @@ from proxy_gateway.diagnostics import get_logger
 logger = get_logger("upstream")
 
 
+"""
+OpenAIStreamResponse adapts an OpenAI SDK stream to the transport contract.
+
+Contributor: @man-007
+"""
 class OpenAIStreamResponse:
     """Expose OpenAI SDK chunks as the SSE lines consumed by the route."""
 
@@ -31,6 +38,11 @@ class OpenAIStreamResponse:
             raise UpstreamError(status_code, payload) from exc
 
 
+"""
+OpenAIUpstreamClient sends requests through the OpenAI-compatible SDK.
+
+Contributor: @man-007
+"""
 class OpenAIUpstreamClient(UpstreamTransport):
     """Chat-completions transport backed by the OpenAI-compatible SDK."""
 

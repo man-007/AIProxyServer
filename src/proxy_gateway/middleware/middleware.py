@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 import asyncio
@@ -13,6 +15,11 @@ from starlette.middleware.base import BaseHTTPMiddleware
 logger = get_logger("middleware")
 
 
+"""
+CORSAccessLogMiddleware records request activity for the proxy.
+
+Contributor: @man-007
+"""
 class CORSAccessLogMiddleware(BaseHTTPMiddleware):
     """Log CORS preflight decisions before the CORS middleware adds headers."""
 
@@ -40,6 +47,11 @@ class CORSAccessLogMiddleware(BaseHTTPMiddleware):
         return response
 
 
+"""
+RateLimitStore defines storage for request-rate counters.
+
+Contributor: @man-007
+"""
 class RateLimitStore(Protocol):
     """Define the storage operation required by rate limiting middleware."""
 
@@ -48,6 +60,11 @@ class RateLimitStore(Protocol):
         ...
 
 
+"""
+InMemoryRateLimitStore keeps rate-limit counters in the current process.
+
+Contributor: @man-007
+"""
 class InMemoryRateLimitStore:
     """Apply fixed-window limits with bounded in-process client state."""
 
@@ -76,6 +93,11 @@ class InMemoryRateLimitStore:
             return True
 
 
+"""
+RedisRateLimitStore shares rate-limit counters through Redis.
+
+Contributor: @man-007
+"""
 class RedisRateLimitStore:
     """Apply shared fixed-window limits through Redis counters."""
 
@@ -93,6 +115,11 @@ class RedisRateLimitStore:
         return count <= limit
 
 
+"""
+SimpleRateLimitMiddleware enforces the configured request limit.
+
+Contributor: @man-007
+"""
 class SimpleRateLimitMiddleware(BaseHTTPMiddleware):
     """Reject requests that exceed the configured per-client request rate."""
 
@@ -157,6 +184,11 @@ class SimpleRateLimitMiddleware(BaseHTTPMiddleware):
         return response
 
 
+"""
+RequestIDMiddleware attaches a request identifier to each request.
+
+Contributor: @man-007
+"""
 class RequestIDMiddleware(BaseHTTPMiddleware):
     """Ensure every response carries a stable request correlation identifier."""
 

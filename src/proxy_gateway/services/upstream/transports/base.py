@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -5,6 +7,11 @@ from contextlib import AbstractAsyncContextManager
 from typing import Any
 
 
+"""
+UpstreamTransport defines the interface for upstream clients.
+
+Contributor: @man-007
+"""
 class UpstreamTransport(ABC):
     """Common contract and configuration for upstream transport implementations."""
 

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from typing import Any
 
 from fastapi import APIRouter, HTTPException
@@ -10,6 +12,11 @@ from proxy_gateway.services.state import config_service
 logger = get_logger("config_routes")
 router = APIRouter(prefix="", tags=["Configuration"])
 
+"""
+ConfigUpdate describes settings accepted by the runtime configuration API.
+
+Contributor: @man-007
+"""
 class ConfigUpdate(BaseModel):
     """Document settings that can be changed at runtime; the API key is write-only."""
 

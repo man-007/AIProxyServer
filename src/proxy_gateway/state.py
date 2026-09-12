@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from proxy_gateway.services.state import (
     gateway,
     logger,
@@ -7,6 +9,11 @@ from proxy_gateway.services.state import (
     upstream_client,
 )
 
+"""
+State management utilities for the proxy gateway.
+
+Contributor: @man-007
+"""
 __all__ = [
     "gateway",
     "logger",

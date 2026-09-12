@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Manas Taunk
+# SPDX-License-Identifier: BSL-1.0
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
@@ -8,6 +10,11 @@ from proxy_gateway.services.upstream.handlers.base import UpstreamHandler
 from proxy_gateway.services.upstream.transports.base import UpstreamTransport
 
 
+"""
+ModelUpstreamChain resolves model-specific upstream handlers.
+
+Contributor: @man-007
+"""
 class ModelUpstreamChain:
     """Route models through model-specific handlers before invoking transport."""
 
