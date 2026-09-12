@@ -5,8 +5,8 @@ FROM python:3.11-slim AS builder
 
 # Install runtime dependencies (the same list you use locally)
 WORKDIR /build
-COPY requirements.runtime.txt .
-RUN pip install --no-cache-dir --prefix=/install -r requirements.runtime.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # Copy the application source (the packaged layout)
 COPY src/proxy_gateway ./proxy_gateway
